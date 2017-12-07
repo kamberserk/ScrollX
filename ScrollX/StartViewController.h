@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController{
+@interface StartViewController : UIViewController{
     
     IBOutlet UIScrollView *scrollView;
     IBOutlet UIPageControl *pageControl;

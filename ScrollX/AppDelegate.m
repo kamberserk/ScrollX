@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "FirstViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -18,7 +18,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
   
-
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnceAndSkipped"])
+    {
+        
+        
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        FirstViewController *first = [storyBoard instantiateViewControllerWithIdentifier:@"FirstViewController"];
+        
+        _window.rootViewController = first;
+    }
     return YES;
 }
 

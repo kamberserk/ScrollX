@@ -3,11 +3,10 @@ This is a small project for people trying to make an IOS Startup Information Scr
 Some apps already have such kind of ScrollViews. They only run once when the app starts up, and mostly 
 used for teaching how to use the app.
 
-Basically all the codes are in the ViewController and Storyboard.
 
-Storyboard has 3 components : ScrollView , PageControl and Skip Button. When the Skip button is clicked it fires an variable 
-change. In the ViewController you should push to another ViewController when it is skipped , and also you should check that variable 
-and if it is already changed you should push to another ViewController.
+
+InformationStoryboard has 3 components : ScrollView , PageControl and Skip Button. When the Skip button is clicked it fires an variable change and fires for the Main Storyboard. on the second run Appdelegate checks for the variable change and if it is changed directly fires Main Storyboard instead of InformationStoryboard.
+
 
 There is a plist File that you can put your information content page images into, 
     plist is an Array File : you can put images 

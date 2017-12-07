@@ -6,13 +6,13 @@
 //  Copyright © 2017 Young Object. All rights reserved.
 //
 
-#import "ViewController.h"
-
-@interface ViewController ()
+#import "StartViewController.h"
+#import "FirstViewController.h"
+@interface StartViewController ()
 
 @end
 
-@implementation ViewController
+@implementation StartViewController
 
 @synthesize scrollView,pageControl;
 
@@ -20,7 +20,7 @@
   
     [super viewDidLoad];
     
-
+ NSLog(@"Running Start View Controller");
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnceAndSkipped"])
     {
@@ -101,15 +101,26 @@
 
 - (IBAction)skipInformation:(id)sender {
     
-  /*
-        if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnceAndSkipped"])
-        {
-            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnceAndSkipped"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-            
-            //BURDA BASKA BIR KISMA GONDEREBILIRIZ....
-            
-        }
-    */
+    
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnceAndSkipped"])
+    {
+        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnceAndSkipped"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        NSLog(@"Skipped. sending to another StoryBoard");
+        //BURDA BASKA BIR KISMA GONDEREBILIRIZ....
+        
+        
+        NSLog(@"Fire!!!!!");
+        
+        
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        FirstViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"FirstViewController"];
+        [self presentViewController:vc animated:NO completion:nil];
+        
+        
+        
+    }
 }
 @end
